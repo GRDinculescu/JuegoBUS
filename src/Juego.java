@@ -7,9 +7,13 @@ public class Juego {
     private final Mundo m;
     private int pasajerosSubidos;
     private int pasajerosBajados;
+    private final Bus bus;
+    private final Puntos puntos;
 
-    public Juego(Mundo m){
+    public Juego(Mundo m, Puntos puntos){
         this.m = m;
+        this.bus = m.bus;
+        this.puntos = puntos;
     }
 
     public void inicio(Scanner sn){
@@ -26,34 +30,54 @@ public class Juego {
             }
             break;
         }
-        m.bus.moverse(parada);
-        System.out.printf("\nNombre: %s - Pasajeros %d%n", parada.getNombre(), parada.getPasajeros());
+        bus.moverse(parada);
+        System.out.printf("\nPasajeros restantes: %d\nNombre: %s - Pasajeros %d%n",
+                m.getPasajerosTotales(), parada.getNombre(), parada.getPasajeros());
 
         // Si hay pasajeros en el bus bajan
-        if (m.bus.getPasajeros() != 0){
-            pasajerosBajan(m.bus);
+        if (bus.getPasajeros() != 0){
+            pasajerosBajan(bus);
             System.out.printf("[-] Han bajado [%d] pasajeros%n", pasajerosBajados);
         } else {
             System.out.println("No hay pasajeros para bajar");
         }
 
-        // Si hay pasajeros en la estacion suben
-        if (parada.getPasajeros() != 0){
-            pasajerosSuben(parada, m.bus);
-            System.out.printf("[+] Han subido [%d] pasajeros%n", pasajerosSubidos);
-            System.out.println(m.bus.pasajeros);
-        } else {
-            System.out.println("No hay pasajeros para subir");
+        if (!bus.getModoPuertas()) {
+            while (true) {
+                System.out.println("Presione [C] para abrir las puertas\n[M] para irse (reduce 2 punto por cada persona en la estacion\ny 1 por cada tiquet no cobrado)");
+                String opcion = sn.nextLine();
+                if (opcion.equalsIgnoreCase("C")){
+                    bus.activarPuertas();
+                    break;
+                } else if (opcion.equalsIgnoreCase("M")){
+                    System.out.println("Elegiste irte. Seras penalizado por este comportamiento");
+                    puntos.pasajerosDejadosAtras(parada.getPasajeros());
+                    puntos.ticketsNoVendidos();
+                    break;
+                } else { System.out.println("Opcion no valida"); }
+            }
         }
-        System.out.printf("Hay [%s] pasajeros en el bus%n", m.bus.getPasajeros());
+
+        if (bus.getPuertas()){
+            // Si hay pasajeros en la estacion suben
+            if (parada.getPasajeros() != 0){
+                pasajerosSuben(parada, bus);
+                System.out.printf("[+] Han subido [%d] pasajeros%n", pasajerosSubidos);
+            } else {
+                System.out.println("No hay pasajeros para subir");
+            }
+            System.out.printf("Hay [%s] pasajeros en el bus%n", bus.getPasajeros());
+        }
     }
 
     public void pasajerosSuben(Parada parada, Bus bus){
         pasajerosSubidos = 0;
+        puntos.ticketsVendidos();
         while (true){
             if (bus.getPasajeros() < bus.getCapacidadMaxima()){
                 if(parada.getPasajeros() != 0){
                     bus.subePasajero();
+                    puntos.subePasajero();
                     pasajerosSubidos += 1;
                 } else {
                     return;
@@ -72,6 +96,7 @@ public class Juego {
             bus.bajaPasajero();
             pasajerosBajados += 1;
         }
+        m.reatarPasajeros(pasajerosBajados);
     }
 
     public Parada findParada(int parada){

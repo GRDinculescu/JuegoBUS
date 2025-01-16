@@ -18,6 +18,7 @@ public class Bus {
         this.capacidadMaxima = capacidadMaxima;
     }
 
+    public boolean getModoPuertas() { return puertasAutomaticas; }
     public int getCapacidadMaxima() { return capacidadMaxima; }
     public int getPasajeros() { return pasajeros.size(); }
     public boolean getPuertas(){

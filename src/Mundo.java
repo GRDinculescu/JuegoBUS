@@ -26,6 +26,7 @@ public class Mundo {
 
     public int getPasajerosTotales() { return pasajerosTotales; }
     public int getTotalPuntos() { return totalPuntos; }
+    public void reatarPasajeros(int pasajerosBajados) { this.pasajerosTotales -= pasajerosBajados; }
 
     @Override
     public String toString() {

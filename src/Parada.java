@@ -26,6 +26,13 @@ public class Parada {
     public String getNombre() { return nombre; }
     public int getPasajeros() { return pasajeros.size(); }
     public int getId() { return id; }
+    public int getBilletes(){
+        int totalBilletes = 0;
+        for (Pasajero p : pasajeros){
+            totalBilletes += p.getCantidad();
+        }
+        return totalBilletes;
+    }
 
     @Override
     public String toString() {
@@ -34,14 +41,6 @@ public class Parada {
             mensaje.append(p).append("\n");
         }
         return mensaje.toString();
-    }
-
-    public int getBilletes(){
-        int totalBilletes = 0;
-        for (Pasajero p : pasajeros){
-            totalBilletes += p.getCantidad();
-        }
-        return totalBilletes;
     }
 
     // Genera el nombre de las paradas
