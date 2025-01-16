@@ -17,14 +17,11 @@
 //- Tipo: Normal, Tercera edad, Estudiante
 //- Cantidad: 1 - N
 //- Duración: Un día, una semana, 10 viajes
-
-import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sn = new Scanner(System.in);
-        Random r = new Random();
         Puntos puntos;
         String menuDificultad = """
                 

@@ -24,9 +24,6 @@ public class Bus {
     public boolean getPuertas(){
         return this.puertasAbiertas;
     }
-    public String getParadaActual(){
-        return this.paradaActual.getNombre();
-    }
 
     public void subePasajero(){
         pasajeros.add(paradaActual.pasajeros.getFirst());

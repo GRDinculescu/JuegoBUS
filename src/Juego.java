@@ -1,9 +1,7 @@
-import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Juego {
-    private List<Pasajero> pasajeros;
     private final Mundo m;
     private int pasajerosSubidos;
     private int pasajerosBajados;
@@ -38,9 +36,9 @@ public class Juego {
 
         if (!bus.getModoPuertas()) {
             while (true) {
-                System.out.println("Presione [C] para abrir las puertas\n" +
-                        "[M] para irse (reduce 2 punto por cada persona en la estacion\n" +
-                        "y 1 por cada tiquet no cobrado)");
+                System.out.println("""
+                        Presione [C] para abrir las puertas
+                        [M] para irse (reduce 2 punto por cada persona en la estacion y 1 por cada tiquet no cobrado)""");
                 String opcion = sn.nextLine();
                 if (opcion.equalsIgnoreCase("C")){
                     bus.activarPuertas();
@@ -108,9 +106,10 @@ public class Juego {
                     return;
                 }
             } else {
-                System.out.println("No pueden subir mas pasajeros.\n" +
-                        "No se recolectaran mas puntos hasta que no bajen pasajeros\n" +
-                        "Viaja a otras estaciones para que bajen");
+                System.out.println("""
+                        No pueden subir mas pasajeros.
+                        No se recolectaran mas puntos hasta que no bajen pasajeros
+                        Viaja a otras estaciones para que bajen""");
                 return;
             }
         }

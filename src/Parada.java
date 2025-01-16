@@ -65,7 +65,7 @@ public class Parada {
             // Elegir una parada aleatoria
             return busStops.get(r.nextInt(busStops.size()));
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("No se pudo leer el archivo :(");
         }
         return "Parada NULL";
     }
