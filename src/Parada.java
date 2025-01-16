@@ -11,27 +11,25 @@ import java.util.Random;
 public class Parada {
     final private int id;
     final private String nombre;
-    final private int nPasajeros;
     public List<Pasajero> pasajeros = new ArrayList<>();
 
     public Parada(int maxPasajeros, int id) {
         this.id = id;
         Random r = new Random();
-        this.nPasajeros = r.nextInt(0, maxPasajeros+1);
         this.nombre = randomStop(r);
-        for (int i = 0; i < nPasajeros; i++) {
+        for (int i = 0; i < r.nextInt(0, maxPasajeros+1); i++) {
             Pasajero p = new Pasajero();
             pasajeros.add(p);
         }
     }
 
     public String getNombre() { return nombre; }
-    public int getPasajeros() { return nPasajeros; }
+    public int getPasajeros() { return pasajeros.size(); }
     public int getId() { return id; }
 
     @Override
     public String toString() {
-        StringBuilder mensaje = new StringBuilder("ID: " + id + "\nNombre: " + nombre + "\nPasajeros: " + nPasajeros + "\n");
+        StringBuilder mensaje = new StringBuilder("ID: " + id + "\nNombre: " + nombre + "\nPasajeros: " + pasajeros.size() + "\n");
         for (Pasajero p : pasajeros){
             mensaje.append(p).append("\n");
         }

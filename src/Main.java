@@ -33,6 +33,7 @@ public class Main {
                 [3] Dificil
                 [9] Salir""";
 
+        // INICIA EL PROGRAMA
         while (true){
             int dificultad = Funciones.getInt(sn, menuDificultad, "Valor invalido");
             if (dificultad == 9){
@@ -40,14 +41,11 @@ public class Main {
                 break;
             }
             Mundo m = new Mundo(dificultad);
-            System.out.println(m);
-
-            String mensaje = "Elija parada a viajar:\n";
-            for (Parada p : m.paradas){
-                mensaje += "["+p.getId()+"] "+p.getNombre()+"\n";
+            //System.out.println(m);
+            Juego j = new Juego(m);
+            while (m.getPasajerosTotales() != 0) {
+                j.inicio(sn);
             }
-            int parada = Funciones.getInt(sn, mensaje, "Valor invalido");
-            m.bus.moverse(parada);
         }
     }
 }

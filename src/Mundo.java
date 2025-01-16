@@ -24,6 +24,7 @@ public class Mundo {
         }
     }
 
+    public int getPasajerosTotales() { return pasajerosTotales; }
     public int getTotalPuntos() { return totalPuntos; }
 
     @Override
@@ -47,7 +48,7 @@ public class Mundo {
             totalPuntos += p.getPasajeros() * 2;
             pasajerosTotales += p.getPasajeros();
         }
-        bus = new Bus(20, true, paradas);
+        bus = new Bus(20, true);
         pidenTicket = false;
     }
 
@@ -60,7 +61,7 @@ public class Mundo {
             totalPuntos += p.getPasajeros() + p.getBilletes();
             pasajerosTotales += p.getPasajeros();
         }
-        bus = new Bus(60, false, paradas);
+        bus = new Bus(60, false);
         pidenTicket = true;
     }
 
@@ -73,7 +74,7 @@ public class Mundo {
             totalPuntos += p.getPasajeros() + p.getBilletes();
             pasajerosTotales += p.getPasajeros();
         }
-        bus = new Bus(150, false, paradas);
+        bus = new Bus(150, false);
         pidenTicket = true;
     }
 }
