@@ -9,11 +9,13 @@ public class Juego {
     private int pasajerosBajados;
     private final Bus bus;
     private final Puntos puntos;
+    private final Taquillera t;
 
     public Juego(Mundo m, Puntos puntos){
         this.m = m;
         this.bus = m.bus;
         this.puntos = puntos;
+        t = new Taquillera();
     }
 
     public void inicio(Scanner sn){
@@ -34,31 +36,35 @@ public class Juego {
         System.out.printf("\nPasajeros restantes: %d\nNombre: %s - Pasajeros %d%n",
                 m.getPasajerosTotales(), parada.getNombre(), parada.getPasajeros());
 
-        // Si hay pasajeros en el bus bajan
-        if (bus.getPasajeros() != 0){
-            pasajerosBajan(bus);
-            System.out.printf("[-] Han bajado [%d] pasajeros%n", pasajerosBajados);
-        } else {
-            System.out.println("No hay pasajeros para bajar");
-        }
-
         if (!bus.getModoPuertas()) {
             while (true) {
-                System.out.println("Presione [C] para abrir las puertas\n[M] para irse (reduce 2 punto por cada persona en la estacion\ny 1 por cada tiquet no cobrado)");
+                System.out.println("Presione [C] para abrir las puertas\n" +
+                        "[M] para irse (reduce 2 punto por cada persona en la estacion\n" +
+                        "y 1 por cada tiquet no cobrado)");
                 String opcion = sn.nextLine();
                 if (opcion.equalsIgnoreCase("C")){
                     bus.activarPuertas();
-                    break;
                 } else if (opcion.equalsIgnoreCase("M")){
                     System.out.println("Elegiste irte. Seras penalizado por este comportamiento");
                     puntos.pasajerosDejadosAtras(parada.getPasajeros());
                     puntos.ticketsNoVendidos();
-                    break;
-                } else { System.out.println("Opcion no valida"); }
+                } else {
+                    System.out.println("Opcion no valida");
+                    continue;
+                }
+                break;
             }
         }
 
         if (bus.getPuertas()){
+            // Si hay pasajeros en el bus bajan
+            if (bus.getPasajeros() != 0){
+                pasajerosBajan(bus);
+                System.out.printf("[-] Han bajado [%d] pasajeros%n", pasajerosBajados);
+            } else {
+                System.out.println("No hay pasajeros para bajar");
+            }
+
             // Si hay pasajeros en la estacion suben
             if (parada.getPasajeros() != 0){
                 pasajerosSuben(parada, bus);
@@ -68,22 +74,43 @@ public class Juego {
             }
             System.out.printf("Hay [%s] pasajeros en el bus%n", bus.getPasajeros());
         }
+
+        while (bus.getPuertas()){
+            System.out.println("Presiona [F] para cerrar las puetas");
+            String input = sn.nextLine();
+            if (input.equalsIgnoreCase("f")){
+                bus.activarPuertas();
+            } else if (input.equalsIgnoreCase("m")) {
+                System.out.println("No puedes irte con las puertas abiertas");
+            } else {
+                System.out.println("Boton no reconocido");
+            }
+        }
     }
 
     public void pasajerosSuben(Parada parada, Bus bus){
         pasajerosSubidos = 0;
-        puntos.ticketsVendidos();
         while (true){
             if (bus.getPasajeros() < bus.getCapacidadMaxima()){
                 if(parada.getPasajeros() != 0){
-                    bus.subePasajero();
                     puntos.subePasajero();
+                    if (!puntos.getEasy()){
+                        if (t.darTicket(parada.pasajeros.getFirst())){
+                            puntos.ticketsVendidos(parada.pasajeros.getFirst());
+                        } else {
+                            puntos.ticketMalo();
+                            System.out.println("El tiquet estaba mal");
+                        }
+                    }
+                    bus.subePasajero();
                     pasajerosSubidos += 1;
                 } else {
                     return;
                 }
             } else {
-                System.out.println("No pueden subir mas pasajeros.\nNo se recolectaran mas puntos hasta que no bajen pasajeros\nViaja a otras estaciones para que bajen");
+                System.out.println("No pueden subir mas pasajeros.\n" +
+                        "No se recolectaran mas puntos hasta que no bajen pasajeros\n" +
+                        "Viaja a otras estaciones para que bajen");
                 return;
             }
         }

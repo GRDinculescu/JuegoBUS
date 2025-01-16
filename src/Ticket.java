@@ -28,7 +28,7 @@ public class Ticket {
         return switch (r.nextInt(1, 4)) {
             case 1 -> "Dia";
             case 2 -> "Semana";
-            case 3 -> "Diez Dias";
+            case 3 -> "Diez viajes";
             default -> "";
         };
     }

@@ -27,6 +27,7 @@ public class Main {
         Random r = new Random();
         Puntos puntos;
         String menuDificultad = """
+                
                 BIENVENIDO
                 Elija dificultad
                 [1] Facil
@@ -41,6 +42,10 @@ public class Main {
                 System.out.println("Saliendo...");
                 break;
             }
+            if (dificultad < 1 || dificultad > 3){
+                System.out.println("Dificultan no disponible");
+                continue;
+            }
             Mundo m = new Mundo(dificultad);
             if (dificultad > 1) {
                 puntos = new Puntos(false);
@@ -52,7 +57,8 @@ public class Main {
             while (m.getPasajerosTotales() > 0) {
                 j.inicio(sn);
             }
-            System.out.printf("%nHas completado la ruta con un total de [%d] puntos de [%d]%n%n", puntos.getPuntos(), m.getTotalPuntos());
+            System.out.printf("%nHas completado la ruta con un total de [%d] puntos de [%d]%n%n",
+                    puntos.getPuntos(), m.getTotalPuntos());
         }
     }
 }

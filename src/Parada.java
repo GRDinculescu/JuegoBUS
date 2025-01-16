@@ -36,7 +36,8 @@ public class Parada {
 
     @Override
     public String toString() {
-        StringBuilder mensaje = new StringBuilder("ID: " + id + "\nNombre: " + nombre + "\nPasajeros: " + pasajeros.size() + "\n");
+        StringBuilder mensaje = new StringBuilder("ID: " + id + "\nNombre: " +
+                nombre + "\nPasajeros: " + pasajeros.size() + "\n");
         for (Pasajero p : pasajeros){
             mensaje.append(p).append("\n");
         }

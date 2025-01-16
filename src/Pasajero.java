@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class Pasajero {
     private final int cantidad;
-    private final Ticket ticket;
+    public final Ticket ticket;
 
     public Pasajero(){
         Random r = new Random();

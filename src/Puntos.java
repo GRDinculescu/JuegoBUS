@@ -8,31 +8,22 @@ public class Puntos {
     }
 
     public int getPuntos() { return puntos; }
+    public boolean getEasy() { return isEasy; }
 
     public void subePasajero(){
-        if(!isEasy){
-            this.puntos += 1;
-        } else {
-            this.puntos += 2;
-        }
+        this.puntos += isEasy ? 2 : 1;
     }
 
-    public void ticketsVendidos(){
-        this.puntos += 1;
+    public void ticketsVendidos(Pasajero p){
+        this.puntos += p.ticket == null ? 0 : 1;
     }
 
     public void pasajerosDejadosAtras(int pasajeros){
-        if (puntos != 0){
-            if (!isEasy){
-                this.puntos -= pasajeros * 2;
-            } else {
-                this.puntos -= pasajeros;
-            }
-        }
+        this.puntos -= pasajeros * 2;
     }
 
     public void ticketsNoVendidos(){
-        this.puntos -= 2;
+        this.puntos -= 1;
     }
 
     public void ticketMalo(){

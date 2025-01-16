@@ -20,7 +20,6 @@ public class Mundo {
             case 1 -> easy();
             case 2 -> normal();
             case 3 -> hard();
-            default -> System.out.println("No existe esa dificultad");
         }
     }
 
