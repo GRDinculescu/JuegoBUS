@@ -10,7 +10,7 @@ Cada persona puede pedir un ticket que tendra la informacion de tipo, duracion y
 - 1 punto por ticket bien dado (Los que suben con tarjeta no dan este punto)
 
 ### Como pierdes puntos
-- Llendote de la estacion. 1 punto por persona en la estacion.
+- Llendote de la estacion. 2 punto por persona en la estacion.
 - Llendote de la estacion. 1 punto por tiket que se podria haber vendido (Todos quitan este punto, porque no sabes si tenian tarjeta o no)
 - 1 punto por entregar un ticket malo
 
