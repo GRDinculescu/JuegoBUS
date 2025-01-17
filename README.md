@@ -14,7 +14,11 @@ Como pierdes puntos
 - Llendote de la estacion. 1 punto por tiket que se podria haber vendido (Todos quitan este punto, porque no sabes si tenian tarjeta o no)
 - 1 punto por entregar un ticket malo
 
-Planes a futuro
+### Proxima actualizacion
+- Ponerle a los pasajeros memoria, para que sepan a que parada quieren llegar y un contador de intentos. Deberas llegar en el menor numero de intentos a esas paradas. Si te pasas, se restara un punto por pasajero por cada viaje que hagas y no sea la parada que deseaba el pasajero
+- Modo custom, para que el jugador pueda elegir si las puertas son automaticas, el numero de paradas, las personas por parada (entre 0 a ese numero), si los pasajeros pueden pedir tickets, e implementarlo con la memoria de los pasajeros para elegir cuantos intentos se tendra.
+
+### Planes a futuro
 - Hacer que el modo facil tenga alguna manera para bajarle puntos
 - Ponerle tiempo
 - Menu de opciones
