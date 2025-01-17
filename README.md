@@ -1,4 +1,4 @@
-#Tha Bus Game
+# Tha Bus Game
 Pequeño proyecto que hice para practicar el uso de las clases
 
 Vas en un bus, por una ciudad con un numero aleatorio de paradas, con un numero aleatorio de personas, y con datos aleatorios
