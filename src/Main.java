@@ -1,23 +1,6 @@
-//JUEGO AUTOBUS
-//
-//Misión -> Llevar el bus a todas las paradas en el menor tiempo posible y acumular el mayor numero de puntos
-//Paradas -> De 10 a 20
-//
-//Que puede hacer el jugador:
-//- Dejar que suban los pasajeros (+1 por pasajero) [TERMINADO]
-//- Dar los billetes que pida el pasajero (+1 por billete) [TERMINADO]
-//- Moverse a la siguiente estación. El jugador deberá elegir. [TERMINADO]
-//
-//Dificultades:
-//- Fácil: Menor requisito de puntos, los pasajeros no piden billetes, las paradas ya vistas desaparecen de la lista.
-//- Medio: Requisito normal de puntos, los pasajeros piden billetes, las paradas no desaparecen
-//- Difícil: Mayor requerimiento de puntos, los pasajeros piden billetes, las paradas no desaparecen, no subir un pasajero sin motivo o no dar el billete bien resta puntos (-1)
-//
-//Billetes:
-//- Tipo: Normal, Tercera edad, Estudiante
-//- Cantidad: 1 - N
-//- Duración: Un día, una semana, 10 viajes
 import java.util.Scanner;
+
+// Aqui se inicia el juego
 
 public class Main {
     public static void main(String[] args) {
@@ -34,28 +17,27 @@ public class Main {
 
         // INICIA EL PROGRAMA
         while (true){
-            int dificultad = Funciones.getInt(sn, menuDificultad, "Valor invalido");
-            if (dificultad == 9){
+            int dificultad = Info.dificultad = // Establece la dificualtad a la elejida por el jugador
+                    Funciones.getInt(sn, menuDificultad, "Valor invalido");
+
+            if (dificultad == 9){ // Si elije 9 salir del juego
                 System.out.println("Saliendo...");
                 break;
             }
-            if (dificultad < 1 || dificultad > 3){
+
+            if (dificultad < 1 || dificultad > 3){ // Si a elejido una dificultad que no esta volver a preguntar
                 System.out.println("Dificultan no disponible");
                 continue;
             }
-            Mundo m = new Mundo(dificultad);
-            if (dificultad > 1) {
-                puntos = new Puntos(false);
-            } else {
-                puntos = new Puntos(true);
-            }
-            System.out.println(m);
-            Juego j = new Juego(m, puntos);
-            while (m.getPasajerosTotales() > 0) {
-                j.inicio(sn);
-            }
+//             Mundo m =  Mundo.getMundo();
+//             System.out.println(m);
+
+            do {
+                Juego.inicio(sn);
+            } while (Info.pasajerosRestantes > 0); // Mientras no haya llevado a todos los pasajeros repetir
             System.out.printf("%nHas completado la ruta con un total de [%d] puntos de [%d]%n%n",
-                    puntos.getPuntos(), m.getTotalPuntos());
+                    Info.puntos, Info.puntosObtenibles);
+            Info.resetAll();
         }
     }
 }

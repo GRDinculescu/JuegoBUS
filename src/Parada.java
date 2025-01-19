@@ -8,27 +8,29 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+// Aqui se crea la parada de forma aleatoria con pasajeros
+
 public class Parada {
-    final private int id;
+    final private int id; // Solo se usa para cuando se le pregunta al ususario a que parada ir
     final private String nombre;
-    public List<Pasajero> pasajeros = new ArrayList<>();
+    public List<Pasajero> pasajerosParada = new ArrayList<>();
 
     public Parada(int maxPasajeros, int id) {
         this.id = id;
         Random r = new Random();
         this.nombre = randomStop(r);
         for (int i = 0; i < r.nextInt(0, maxPasajeros+1); i++) {
-            Pasajero p = new Pasajero();
-            pasajeros.add(p);
+            Pasajero p = new Pasajero(this);
+            pasajerosParada.add(p);
         }
     }
 
     public String getNombre() { return nombre; }
-    public int getPasajeros() { return pasajeros.size(); }
+    public int getPasajeros() { return pasajerosParada.size(); }
     public int getId() { return id; }
     public int getBilletes(){
         int totalBilletes = 0;
-        for (Pasajero p : pasajeros){
+        for (Pasajero p : pasajerosParada){
             totalBilletes += p.getCantidad();
         }
         return totalBilletes;
@@ -37,8 +39,8 @@ public class Parada {
     @Override
     public String toString() {
         StringBuilder mensaje = new StringBuilder("ID: " + id + "\nNombre: " +
-                nombre + "\nPasajeros: " + pasajeros.size() + "\n");
-        for (Pasajero p : pasajeros){
+                nombre + "\npasajerosParada: " + pasajerosParada.size() + "\n");
+        for (Pasajero p : pasajerosParada){
             mensaje.append(p).append("\n");
         }
         return mensaje.toString();

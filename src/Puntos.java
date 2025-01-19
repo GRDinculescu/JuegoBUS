@@ -1,32 +1,25 @@
+// Aqui se gestionan los puntos
+
 public class Puntos {
-    private int puntos;
     private final boolean isEasy;
 
-    public Puntos(boolean isEasy){
-        this.puntos = 0;
-        this.isEasy = isEasy;
+    public static Puntos getPuntos() { return puntos; }
+
+    private static final Puntos puntos = new Puntos();
+
+    private Puntos(){
+        Info.puntos = 0;
+        this.isEasy = Info.dificultad == 1;
     }
 
-    public int getPuntos() { return puntos; }
-    public boolean getEasy() { return isEasy; }
+    public void subePasajero(){ Info.puntos += isEasy ? 2 : 1; }
 
-    public void subePasajero(){
-        this.puntos += isEasy ? 2 : 1;
-    }
+    public void ticketsVendidos(Pasajero p){ Info.puntos += p.ticket == null ? 0 : 1; }
 
-    public void ticketsVendidos(Pasajero p){
-        this.puntos += p.ticket == null ? 0 : 1;
-    }
-
-    public void pasajerosDejadosAtras(int pasajeros){
-        this.puntos -= pasajeros * 2;
-    }
-
-    public void ticketsNoVendidos(){
-        this.puntos -= 1;
-    }
+    public void pasajerosDejadosAtras(int pasajeros){ Info.puntos -= pasajeros * 3; }
 
     public void ticketMalo(){
-        this.puntos -= 1;
+        Info.puntos -= 1;
+        System.out.println("El tiquet estaba mal");
     }
 }
