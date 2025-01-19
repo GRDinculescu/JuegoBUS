@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62fc83e5-95d1-4231-a95d-f1323ec48e01" name="Changes" comment="Game update. Small changes. Deleted unused stuff">
-      <change afterPath="$PROJECT_DIR$/src/Custom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Juego.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Mundo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mundo.java" afterDir="false" />
+    <list default="true" id="62fc83e5-95d1-4231-a95d-f1323ec48e01" name="Changes" comment="Refactorizacion - Errores arreglados">
       <change beforePath="$PROJECT_DIR$/src/Parada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parada.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Pasajero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pasajero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Puntos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Puntos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Taquillera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Taquillera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ticket.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +98,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737058798975</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Refactorizacion - Errores arreglados">
+      <option name="closed" value="true" />
+      <created>1737315126557</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1737315126557</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -128,6 +125,7 @@
     <MESSAGE value="Game update. All works fine, but remains the ticket machine :)" />
     <MESSAGE value="Game update. Game finished. Still testing" />
     <MESSAGE value="Game update. Small changes. Deleted unused stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Game update. Small changes. Deleted unused stuff" />
+    <MESSAGE value="Refactorizacion - Errores arreglados" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactorizacion - Errores arreglados" />
   </component>
 </project>

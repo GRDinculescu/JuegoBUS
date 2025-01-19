@@ -30,6 +30,7 @@ public class Bus {
                             Puntos.getPuntos().ticketMalo(); // Se resta un punto
                         }
                     }
+                    Puntos.getPuntos().subePasajero();
                     Info.pasajerosBus.add(p); // Agrega el pasajero a la lista del bus
                     Info.paradaActual.pasajerosParada.remove(p); // Borra el pasajero de la lista de la parada
                 } else {

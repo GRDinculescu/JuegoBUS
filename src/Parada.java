@@ -20,7 +20,7 @@ public class Parada {
         Random r = new Random();
         this.nombre = randomStop(r);
         for (int i = 0; i < r.nextInt(0, maxPasajeros+1); i++) {
-            Pasajero p = new Pasajero(this);
+            Pasajero p = new Pasajero();
             pasajerosParada.add(p);
         }
     }

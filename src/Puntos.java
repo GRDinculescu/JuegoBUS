@@ -4,9 +4,7 @@ public class Puntos {
     private final boolean isEasy;
 
     public static Puntos getPuntos() { return puntos; }
-
     private static final Puntos puntos = new Puntos();
-
     private Puntos(){
         Info.puntos = 0;
         this.isEasy = Info.dificultad == 1;

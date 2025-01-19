@@ -8,7 +8,7 @@ public class Pasajero {
     private Parada paradaDeseada;
     private int intentos;
 
-    public Pasajero(Parada parada){
+    public Pasajero(){
         Random r = new Random();
         intentos = r.nextInt(3, 6) * Info.intentosMulty;
         this.cantidad = r.nextInt(0, 5);

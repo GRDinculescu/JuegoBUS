@@ -33,9 +33,9 @@ public class Taquillera {
                 cantidad = Funciones.getInt(sn, "Inserte cantidad", "Cantidad invalida");
 
                 System.out.printf("El pasajero pide %d tickets, tipo [%s] de duracion [%s]%n", pasajero.getCantidad(),
-                        pasajero.ticket.getTipoTicket(), pasajero.ticket.getDuracion());
+                        tipos[pasajero.ticket.getTipoTicket()-1], duraciones[pasajero.ticket.getDuracion()-1]);
                 System.out.printf("Tu le vas a entregar %d tickets, tipo [%s] de duracion [%s]%n", pasajero.getCantidad(),
-                        pasajero.ticket.getTipoTicket(), pasajero.ticket.getDuracion());
+                        tipos[tipo-1], duraciones[duracion-1]);
 
                 boolean canContinue = false;
                 while (true) {

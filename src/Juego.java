@@ -4,12 +4,6 @@ import java.util.Scanner;
 
 public class Juego {
 
-    public Juego getJuego() { return juego; }
-
-    private Juego(){}
-
-    private final static Juego juego = new Juego();
-
     public static void inicio(Scanner sn){
         Parada parada;
         StringBuilder mensaje = new StringBuilder("\nElija parada a viajar:\n");
