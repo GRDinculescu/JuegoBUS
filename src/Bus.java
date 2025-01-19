@@ -1,7 +1,5 @@
 // Aqui se crea el bus
 
-import java.util.Random;
-
 public class Bus {
     final private int capacidadMaxima;
     private boolean puertasAbiertas;

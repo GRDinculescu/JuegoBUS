@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sn = new Scanner(System.in);
-        Puntos puntos;
         String menuDificultad = """
                 
                 BIENVENIDO
@@ -29,8 +28,8 @@ public class Main {
                 System.out.println("Dificultan no disponible");
                 continue;
             }
-//             Mundo m =  Mundo.getMundo();
-//             System.out.println(m);
+             Mundo m =  Mundo.getMundo();
+             System.out.println(m);
 
             do {
                 Juego.inicio(sn);
